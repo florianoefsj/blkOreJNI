@@ -40,6 +40,8 @@ Compile the C program:
 
     clang -g -Wl,-rpath,./fastore -O3 -o fastore/liboreblkc.so -march=native -lgmp -lssl -shared -I../jdk1.8.0_144/include/ -I../jdk1.8.0_144/include/linux/ -L./fastore -loreblk -lcrypto blkOreC.c
 
+## Using ##
+
 Run the java class giving the library's local
 
     java -Djava.library.path=./fastore blkOreJNI [op] [args]
