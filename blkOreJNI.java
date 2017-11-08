@@ -1,11 +1,7 @@
-//package jore;
 import java.lang.String;
 import java.util.Arrays;
 import java.io.*;
 import java.nio.file.Files;
-//import java.lang.Object;
-//.org.apache.commons.io.FileUtils;
-//import jore.*;
 
 public class blkOreJNI {
 	static {
@@ -20,7 +16,6 @@ public class blkOreJNI {
 	private int block_len;
 	private int res;
 
-	// Test Driver
 	public static void main(String[] args) throws FileNotFoundException, IOException{
 		
 		int op=0;
@@ -38,11 +33,9 @@ public class blkOreJNI {
 				byte[] ciphertext1 = blkorejni.ciphertext;
 				String path = args[3];
 				FileOutputStream fos = new FileOutputStream(path);
-				//BufferedOutputStream bos = new BufferedOutputStream(file);
 				fos.write(ciphertext1);
 				fos.close();
 				System.out.println(args[3]);
-				//System.out.println();
 				break;
 			}
 			case "cmp":{
@@ -57,7 +50,6 @@ public class blkOreJNI {
 					ctxt1_str = ctxt1_str + String.format("%02X", b);
 				}
 
-				//FileInputStream fin2 = new FileInputStream(args[2]);
 				String file2 = args[2];
 				byte[] ciphertext2 = Files.readAllBytes(new File(file2).toPath());
 				String ctxt2_str = new String("");
@@ -109,40 +101,5 @@ public class blkOreJNI {
 			System.out.println("Uso: enc secret_key n outputfile | cmp secret_key ctxt1 ctxt2 | test secret_key n1 n2");
 
 	
-/*
-		switch (op){
-			case 1:{
-
-				break;}
-			case 2:
-				break;
-			case 3:{
-				byte[] ciphertext1 = blkorejni.ciphertext;
-				System.out.print("CTXT1 (JAVA): ");
-				String ctxt1_str = new String("");
-				
-				for (byte b: ciphertext1){
-					ctxt1_str = ctxt1_str + String.format("%02X", b);
-					System.out.print(String.format("%02X ", b));
-				}
-				System.out.println();
-
-				blkorejni.blkOreC(args, 1);
-
-				byte[] ciphertext2 = blkorejni.ciphertext;
-				System.out.print("CTXT2 (JAVA): ");
-				String ctxt2_str = new String("");
-				
-				for (byte b: ciphertext2){
-					ctxt2_str = ctxt2_str + String.format("%02X", b);
-					System.out.print(String.format("%02X ", b));
-				}
-				System.out.println();
-
-				String [] new_args = {"cmp", ctxt1_str, ctxt2_str};
-				
-				blkorejni.blkOreC(new_args, 2);
-				break;}
-		}*/
 	}
 }
