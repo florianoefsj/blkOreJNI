@@ -4,6 +4,7 @@ A Java interface to the C implementation of Lewi &amp; Wu Order-Revealing Encryp
   * [Order-Revealing Encryption: New Constructions, Applications, and Lower Bounds](https://eprint.iacr.org/2016/612.pdf) (ore_blk.h)
 
 Author: Edson Floriano, MSc student @ PPGI/CiC-UnB
+
 Advisors: Eduardo Alchieri (CiC-UnB) and Diego F. Aranha (IC-UNICAMP)
 
 Contact Edson for questions about the code: florianoefsj@gmail.com
@@ -14,11 +15,12 @@ make sure you have the following installed:
 
  * GMP 5
  * OpenSSL
+
 Currently, the FastORE system requires a processor that supports the AES-NI instruction set.
 
 ## Instalation ##
 
-Clone and compile the FastORE
+Clone and compile the FastORE:
 
     git clone --recursive https://github.com/kevinlewi/fastore.git
     cd fastore
@@ -27,10 +29,10 @@ Clone and compile the FastORE
 Generate the libraries liboreblk.so e libcrypto.so:
 
     clang -g -Wall -O3 -o libcrypto.so -march=native -lgmp -lssl -lcrypto -shared -L/usr/lib/openssl-1.0/ build/crypto.o
-
     clang -g -Wall -O3 -o liboreblk.so -march=native -lgmp -lssl -lcrypto -shared -L./ build/ore_blk.o
 
 Get out of the folder "fastore", compile the JAVA program and generate the Header file:
+
     cd .. 
     javac blkOreJNI.java
     javah -jni blkOreJNI
@@ -42,7 +44,7 @@ Compile the C program:
 
 ## Using ##
 
-Run the java class giving the library's local
+Run the java class giving the local of the fastore library:
 
     java -Djava.library.path=./fastore blkOreJNI [op] [args]
 
