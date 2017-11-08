@@ -5,7 +5,9 @@ A Java interface to the C implementation of Lewi &amp; Wu Order-Revealing Encryp
 
 Author: Edson Floriano, MSc student @ PPGI/CiC-UnB
 
-Advisors: Eduardo Alchieri (CiC-UnB) and Diego F. Aranha (IC-UNICAMP)
+Advisor: Eduardo Alchieri (CiC-UnB)
+
+Co-Advisor: Diego F. Aranha (IC-UNICAMP)
 
 Contact Edson for questions about the code: florianoefsj@gmail.com
 
