@@ -48,19 +48,16 @@ Run the java class giving the library's local
 
 Options and arguments:
 
- - To encrypt the number "n" under the key "secret_key" and write the resulting binary into the file "file_out", use:
-
-enc secret_key n file_out
+ - To encrypt the number "n" under the key "secret_key" and write the resulting binary into the file "file_out", use the option: "enc", with args: "secret_key n file_out"
 
 e.g.
 
     java -Djava.library.path=./fastore blkOreJNI enc mysecretkey 15 a.ctxt
 
- - To compare two ciphertexts previously generated under the same key and stored at the files "a.ctxt" and "b.ctxt", use:
-
-cmp file1_in file2_in
+ - To compare two ciphertexts previously generated under the same key and stored at the files "file1_in" and "file2_in", use the option: "cmp" with the args: "file1_in file2_in"
 
 e.g.
+
     java -Djava.library.path=./fastore blkOreJNI cmp a.ctxt b.ctxt
 
 The cmp results will be:
