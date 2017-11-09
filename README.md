@@ -17,6 +17,7 @@ make sure you have the following installed:
 
  * GMP 5
  * OpenSSL
+ * JDK 8
 
 Currently, the FastORE system requires a processor that supports the AES-NI instruction set.
 
