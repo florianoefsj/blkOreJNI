@@ -16,7 +16,7 @@ Contact Edson for questions about the code: florianoefsj@gmail.com
 make sure you have the following installed:
 
  * GMP 5 (Ex.: sudo apt-get install libgmp-dev)
- * OpenSSL (Ex.: sudo apt-get install openssl)
+ * OpenSSL (Ex.: sudo apt-get install openssl libssl-dev)
  * Clang (Ex.: sudo apt-get install clang)
  * JDK 8
 
@@ -32,8 +32,8 @@ Clone and compile the FastORE:
  
 Generate the libraries liboreblk.so e libcrypto.so (Find your native libcrypto.so location, in this case, /usr/lib/openssl-1.0/ and change to it in next command):
 
-    clang -g -Wall -O3 -o libcrypto.so -march=native -lgmp -lssl -lcrypto -shared -L/usr/lib/openssl-1.0/ crypto.c
-    clang -g -Wall -O3 -o liboreblk.so -march=native -lgmp -lssl -lcrypto -shared -L./ ore_blk.c 
+    clang -g -Wall -O3 -o libcrypto.so -march=native -maes -lgmp -lssl -lcrypto -shared -L/usr/lib/openssl-1.0/ crypto.c
+    clang -g -Wall -O3 -o liboreblk.so -march=native -maes -lgmp -lssl -lcrypto -shared -L./ ore_blk.c 
 
 May be nacessary to use -fPIC option in the above command to compile.
 
