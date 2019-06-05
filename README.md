@@ -24,7 +24,7 @@ Currently, the FastORE system requires a processor that supports the AES-NI inst
 
 ## Instalation ##
 
-Clone and compile the FastORE:
+Clone and compile the FastORE (May be necessary to include "-maes" at CFLAGS parameter into Makefile):
 
     git clone --recursive https://github.com/kevinlewi/fastore.git
     cd fastore
@@ -35,7 +35,7 @@ Generate the libraries liboreblk.so e libcrypto.so (Find your native libcrypto.s
     clang -g -Wall -O3 -o libcrypto.so -march=native -maes -lgmp -lssl -lcrypto -shared -L/usr/lib/openssl-1.0/ crypto.c
     clang -g -Wall -O3 -o liboreblk.so -march=native -maes -lgmp -lssl -lcrypto -shared -L./ ore_blk.c 
 
-May be nacessary to use -fPIC option in the above command to compile.
+May be necessary to use -fPIC option in the above command to compile.
 
 Get out of the folder "fastore", compile the JAVA program and generate the Header file:
 
@@ -47,6 +47,8 @@ Get out of the folder "fastore", compile the JAVA program and generate the Heade
 Compile the C program:
 
     clang -g -Wl,-rpath,./fastore -O3 -o fastore/liboreblkc.so -march=native -lgmp -lssl -shared -I../jdk1.8.0_144/include/ -I../jdk1.8.0_144/include/linux/ -L./fastore -loreblk -lcrypto blkOreC.c
+
+Again, may be necessary to use "-maes -fPIC" options if you have used these before.
 
 ## Using ##
 
